@@ -2,6 +2,7 @@ package com.devway.bootspringboot.domain.store;
 
 
 import com.devway.bootspringboot.domain.category.Category;
+import com.devway.bootspringboot.view.store.StoreView;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,4 +29,16 @@ public class Store extends AbstractPersistable<Long> {
     private String breakEnd;   // 브레이크 종료 시간
     private String posYn;      // 가맹점 포스기 설치 여부
 //    private Category category; // 업종
+
+    public Store(final StoreView storeView) {
+        this.name = storeView.getName();
+        this.addrNew = storeView.getAddrNew();
+        this.addrOld = storeView.getAddrOld();
+        this.tel = storeView.getTel();
+        this.start = storeView.getStart();
+        this.end = storeView.getEnd();
+        this.breakStart = storeView.getBreakStart();
+        this.breakEnd = storeView.getBreakEnd();
+        this.posYn = storeView.getPosYn();
+    }
 }

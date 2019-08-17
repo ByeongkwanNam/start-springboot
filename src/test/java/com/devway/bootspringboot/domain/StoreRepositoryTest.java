@@ -23,7 +23,7 @@ public class StoreRepositoryTest {
     public void testSave() {
         Store store = new Store();
         store.setName("김밥천국");
-        store.setAddr("백암온천로 1279");
+        store.setAddrNew("백암온천로 1279");
         store.setStart("오전 10시");
         store.setEnd("오후 10시");
         store.setPosYn("Y");
@@ -40,7 +40,7 @@ public class StoreRepositoryTest {
     public void testFindByNameLike() {
         Store store = new Store();
         store.setName("김밥천국");
-        store.setAddr("백암온천로 1279");
+        store.setAddrNew("백암온천로 1279");
         store.setStart("오전 10시");
         store.setEnd("오후 10시");
         store.setPosYn("Y");
