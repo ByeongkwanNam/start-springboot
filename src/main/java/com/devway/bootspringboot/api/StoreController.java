@@ -18,19 +18,14 @@ public class StoreController {
     @Autowired
     StoreRepository repository;
 
-    @GetMapping("/")
-    public String getStore() {
-        return "Hello, Store";
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public boolean createStore(StoreView storeView) {
         // TODO: PUT, POST, DELETE 예외처리 및 응답 설계
         StoreServiceImpl storeService = new StoreServiceImpl(repository);
         return storeService.addStore(storeView);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<StoreView> getStores(StoreParam storeParam) {
         List<StoreView> storeViewList = new ArrayList<>();
         StoreServiceImpl storeService = new StoreServiceImpl(repository);
@@ -40,14 +35,14 @@ public class StoreController {
     }
 
 
-    @RequestMapping(value = "/{storeId}", method = RequestMethod.PUT)
+    @PutMapping(value = "/{storeId}")
     public String updateStore(@PathVariable Long storeId, StoreView storeView) {
         String res = null;
         // TODO: PUT, POST, DELETE 예외처리 및 응답 설계
         return res;
     }
 
-    @RequestMapping(value = "/{storeId}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{storeId}")
     public String deleteStore(@PathVariable Long storeId) {
         String res = null;
         // TODO: PUT, POST, DELETE 예외처리 및 응답 설계
