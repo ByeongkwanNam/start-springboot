@@ -4,6 +4,7 @@ package com.devway.bootspringboot.lectureTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -17,6 +18,8 @@ public class H2Runner implements ApplicationRunner {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -36,6 +39,8 @@ public class H2Runner implements ApplicationRunner {
             // Rollback code
         }
 
+        // 간결하고 안전하게 SQL 사용 가능. (예외처리, 로그 볼 때 가독성 높은 에러메시지 등)
+        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'byeongkwan')");
 
     }
 }
