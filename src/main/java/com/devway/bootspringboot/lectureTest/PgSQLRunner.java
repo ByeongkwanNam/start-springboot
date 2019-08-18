@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @Component
-public class H2Runner implements ApplicationRunner {
+public class PgSQLRunner implements ApplicationRunner {
 
     @Autowired
     DataSource dataSource;
@@ -31,16 +31,17 @@ public class H2Runner implements ApplicationRunner {
             System.out.println(connection.getMetaData().getURL());
             System.out.println(connection.getMetaData().getUserName());
 
-            // 쿼리 생성 및 실행, 오류날 경우 롤백
-            Statement statement = connection.createStatement();
-            String sql = "CREATE TABLE USER(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
-            statement.execute(sql);
+//            // 쿼리 생성 및 실행, 오류날 경우 롤백
+//            Statement statement = connection.createStatement();
+//            // postgre 사용 시, user는 키워드이기 때문에 사용하면 안된다. users 또는 account 등을 사용.
+//            String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
+//            statement.executeUpdate(sql);
         } catch (SQLException e) {
             // Rollback code
         }
 
         // 간결하고 안전하게 SQL 사용 가능. (예외처리, 로그 볼 때 가독성 높은 에러메시지 등)
-        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'byeongkwan')");
+//        jdbcTemplate.execute("INSERT INTO account VALUES (5, 'byeongkwan')");
 
     }
 }
