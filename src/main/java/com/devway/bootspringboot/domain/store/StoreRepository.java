@@ -8,6 +8,5 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface StoreRepository extends JpaRepository<Store, Long> {
-    // 싱글톤 설정
-    List<Store> findByNameLike(String name);
+
 }

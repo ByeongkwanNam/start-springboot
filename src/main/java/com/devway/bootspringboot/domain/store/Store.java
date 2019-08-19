@@ -3,20 +3,26 @@ package com.devway.bootspringboot.domain.store;
 
 import com.devway.bootspringboot.domain.category.Category;
 import com.devway.bootspringboot.view.store.StoreView;
+import com.sun.javafx.beans.IDProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class Store extends AbstractPersistable<Long> {
+public class Store {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     @NotNull
     private String name;       // 상호명
     @NotNull
@@ -28,7 +34,6 @@ public class Store extends AbstractPersistable<Long> {
     private String breakStart; // 브레이크 시작 시간
     private String breakEnd;   // 브레이크 종료 시간
     private String posYn;      // 가맹점 포스기 설치 여부
-//    private Category category; // 업종
 
     public Store(final StoreView storeView) {
         this.name = storeView.getName();
