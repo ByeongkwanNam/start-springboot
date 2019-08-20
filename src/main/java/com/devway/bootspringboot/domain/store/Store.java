@@ -29,8 +29,8 @@ public class Store {
     private String addrNew;    // 도로명 주소
     private String addrOld;    // 구 주소
     private String tel;        // 대표 전화번호
-    private String start;      // 영업 시작 시간
-    private String end;        // 영업 종료 시간
+    private String storeStart; // 영업 시작 시간
+    private String storeEnd;   // 영업 종료 시간
     private String breakStart; // 브레이크 시작 시간
     private String breakEnd;   // 브레이크 종료 시간
     private String posYn;      // 가맹점 포스기 설치 여부
@@ -40,8 +40,8 @@ public class Store {
         this.addrNew = storeView.getAddrNew();
         this.addrOld = storeView.getAddrOld();
         this.tel = storeView.getTel();
-        this.start = storeView.getStart();
-        this.end = storeView.getEnd();
+        this.storeStart = storeView.getStoreStart();
+        this.storeEnd = storeView.getStoreEnd();
         this.breakStart = storeView.getBreakStart();
         this.breakEnd = storeView.getBreakEnd();
         this.posYn = storeView.getPosYn();
