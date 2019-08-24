@@ -37,7 +37,6 @@ public class StoreServiceImpl implements StoreService {
         List<StoreView> storeViewList = new ArrayList<>();
 
         // 2. 검색 조건에 맞는 상점 목록 검색
-//        List<Store> storeList = storeRepository.findByStoreParam(storeParam);
         List<Store> storeList = new ArrayList<>();
 
         // 3. Store -> StoreView 파싱
